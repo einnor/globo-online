@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   },
   headStyle: {
     paddingTop: 30,
-    paddingBottom: 10,
     paddingRight: 10,
     backgroundColor: '#35605a',
+    flex: 1,
   }
 });
