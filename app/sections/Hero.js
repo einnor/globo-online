@@ -4,7 +4,7 @@ import { StyleSheet, Image } from 'react-native';
 export class Hero extends Component {
   render() {
     return (
-      <Image style={styles.heroImage} source={require('./img/hero.jpeg')} />
+      <Image style={styles.heroImage} source={require('./img/hero.jpg')} />
     );
   }
 }
