@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
 
 import { Header } from '../sections/Header';
-import { Hero } from '../sections/Hero';
-import { Menu } from '../sections/Menu';
 
-export class Home extends Component {
+export class Contact extends Component {
+  static navigationOptions = {
+    header: null,
+  }
+
   render() {
-    const { navigation } = this.props;
-    const { navigate } = navigation;
     return (
       <View style={styles.container}>
         <Header message="Press to Login" />
-        <Hero />
-        <Menu navigate={navigate} />
+        <Text style={{ flex: 8 }}>The contact form will go here</Text>
+        <Text style={{ flex: 6 }}>More contact info</Text>
       </View>
     );
   }

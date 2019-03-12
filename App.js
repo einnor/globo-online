@@ -1,7 +1,21 @@
 import React from 'react';
 import { AppLoading, Asset, Font, Icon } from 'expo';
+import { StackNavigator } from 'react-navigation';
 
+import { Contact } from './app/views/Contact';
 import { Home } from './app/views/Home';
+
+const MyRoutes = StackNavigator({
+  HomeRT: {
+    screen: Home,
+  },
+  ContactRT: {
+    screen: Contact,
+  },
+}, {
+  initialRouteName: 'HomeRT',
+});
+
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
@@ -18,7 +32,7 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <Home />
+        <MyRoutes />
       );
     }
   }
