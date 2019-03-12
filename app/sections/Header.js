@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 export class Header extends Component {
   constructor(props) {
@@ -20,6 +20,7 @@ export class Header extends Component {
     const display = isLoggedIn ? 'Sample User' : message
     return (
       <View style={styles.headStyle}>
+        <Image style={styles.logoStyle} source={require('./img/logo.webp')} />
         <Text onPress={this.toggleUser} style={styles.headText}>{display}</Text>
       </View>
     );
@@ -31,11 +32,20 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     color: '#ffffff',
     fontSize: 20,
+    flex: 1,
   },
   headStyle: {
     paddingTop: 30,
     paddingRight: 10,
     backgroundColor: '#35605a',
     flex: 1,
+    flexDirection: 'row',
+    borderBottomWidth: 2,
+    borderColor: '#000000',
+  },
+  logoStyle: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
   }
 });
