@@ -20,7 +20,7 @@ export class Header extends Component {
     const display = isLoggedIn ? 'Sample User' : message
     return (
       <View style={styles.headStyle}>
-        <Image style={styles.logoStyle} source={require('./img/logo.webp')} />
+        <Image style={styles.logoStyle} source={require('./img/logo.png')} />
         <Text onPress={this.toggleUser} style={styles.headText}>{display}</Text>
       </View>
     );
