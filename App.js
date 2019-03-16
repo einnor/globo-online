@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 import { Contact } from './app/views/Contact';
 import { Home } from './app/views/Home';
+import { Video } from './app/views/Video';
 
 const MyRoutes = StackNavigator({
   HomeRT: {
@@ -12,6 +13,9 @@ const MyRoutes = StackNavigator({
   ContactRT: {
     screen: Contact,
   },
+  LessonsRT: {
+    screen: Video,
+  }
 }, {
   initialRouteName: 'HomeRT',
 });
