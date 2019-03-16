@@ -12,6 +12,7 @@ export class Video extends Component {
       listLoaded: false,
     };
   }
+
   componentDidMount() {
     return fetch('https://www/googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyD_1odp_kE4NSNDQNpewIzLta6y4rPFpZw')
       .then((response) => response.json())
@@ -22,5 +23,48 @@ export class Video extends Component {
         })
       })
       .catch((error) => console.log(error));
+  }
+
+  render() {
+    const { listLoaded, videoList } = this.state;
+    return(
+      <View>
+        {
+          listLoaded ? (
+            <View style={{ paddingTop: 30 }}>
+              <FlatList
+                data={videoList}
+                renderItem={({item}) => (
+                  <TubeItem id={item.id.videoId} title={item.snippet.title} imageSrc={item.snippet.thumbnail.high.url} />
+                )}
+              />
+            </View>
+          ) : (
+            <View style={{ paddingTop: 30 }}>
+              <Text>LOADING...</Text>
+            </View>
+          )
+        }
+      </View>
+    );
+  }
+}
+
+export class TubeItem extends Component {
+  onPress = () => {
+    const { id } = this.props;
+    console.log(id)
+  }
+
+  render() {
+    const { imageSrc, title } = this.props;
+    return (
+      <TouchableWithoutFeedback onPress={this.onPress}>
+        <View style={{ paddingTop: 20, alignItems: 'center' }}>
+          <Image style={{ width: '100%', height: 200 }} source={{ uri: imageSrc }} />
+          <Text>{title}</Text>
+        </View>
+      </TouchableWithoutFeedback>
+    );
   }
 }
