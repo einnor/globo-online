@@ -1,23 +1,41 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, AsyncStorage, Alert } from 'react-native';
 
 export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: false,
+      loggedUser: false,
     };
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('userLoggedIn', (err, result) => {
+      if (result === 'none') {
+
+      } else if (result === null) {
+        AsyncStorage.setItem('userLoggedIn', 'none', (err, result) => {});
+      } else {
+        this.setState({ isLoggedIn: true, loggedUser: result });
+      }
+    });
   }
 
   toggleUser = () => {
     const { isLoggedIn } = this.state;
-    this.setState({ isLoggedIn: !isLoggedIn });
+    if (isLoggedIn) {
+      AsyncStorage.setItem('userLoggedIn', 'none', (err, result) => {
+        this.setState({ isLoggedIn: false, loggedUser: false });
+        Alert.alert('User logged out');
+      });
+    }
   }
 
   render() {
     const { message } = this.props;
-    const { isLoggedIn } = this.state;
-    const display = isLoggedIn ? 'Sample User' : message
+    const { isLoggedIn, loggedUser } = this.state;
+    const display = isLoggedIn ? loggedUser : message
     return (
       <View style={styles.headStyle}>
         <Image style={styles.logoStyle} source={require('./img/logo.png')} />

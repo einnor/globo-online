@@ -32,7 +32,7 @@ export class Contact extends Component {
     const { name, msg, email } = this.state;
     return (
       <View style={styles.container}>
-        <Header message="Press to Login" />
+        <Header navigate={navigate} message="Press to Login" />
         <Text style={styles.heading}>The contact form will go here</Text>
         
         <TextInput style={styles.inputs} onChangeText={(text) => this.setState({ name: text })} value={name} />
