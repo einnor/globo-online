@@ -26,6 +26,8 @@ export class Video extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+    const { navigate } = navigation;
     const { listLoaded, videoList } = this.state;
     console.log(videoList);
     return(
@@ -36,7 +38,7 @@ export class Video extends Component {
               <FlatList
                 data={videoList}
                 renderItem={({ item }) => (
-                  <TubeItem id={item.id.videoId} title={item.snippet.title} imageSrc={item.snippet.thumbnails.high.url} />
+                  <TubeItem navigate={navigate} id={item.id.videoId} title={item.snippet.title} imageSrc={item.snippet.thumbnails.high.url} />
                 )}
               />
             </View>
@@ -53,8 +55,8 @@ export class Video extends Component {
 
 export class TubeItem extends Component {
   onPress = () => {
-    const { id } = this.props;
-    console.log(id)
+    const { id, navigate } = this.props;
+    navigate('VideoDetailsRT', { ytubeId: id });
   }
 
   render() {
