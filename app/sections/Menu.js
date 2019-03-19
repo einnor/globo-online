@@ -14,7 +14,7 @@ export class Menu extends Component {
           <TouchableOpacity style={styles.buttonStyles} onPress={() => navigate('LessonsRT')}>
             <Text style={styles.buttonText}>LESSONS</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyles} onPress={this.onPress}>
+          <TouchableOpacity style={styles.buttonStyles} onPress={() => navigate('RegisterRT')}>
             <Text style={styles.buttonText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
