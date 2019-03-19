@@ -7,6 +7,7 @@ import { Home } from './app/views/Home';
 import { Video } from './app/views/Video';
 import { VideoDetails } from './app/views/VideoDetails';
 import { Register } from './app/views/Register';
+import { Login } from './app/views/Login';
 
 const MyRoutes = StackNavigator({
   HomeRT: {
@@ -23,6 +24,9 @@ const MyRoutes = StackNavigator({
   },
   RegisterRT: {
     screen: Register,
+  },
+  LoginRT: {
+    screen: Login,
   },
 }, {
   initialRouteName: 'HomeRT',
