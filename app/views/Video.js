@@ -14,7 +14,7 @@ export class Video extends Component {
   }
 
   componentDidMount() {
-    return fetch('https://www/googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyD_1odp_kE4NSNDQNpewIzLta6y4rPFpZw')
+    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=pluralsight&type=video&key=AIzaSyD_1odp_kE4NSNDQNpewIzLta6y4rPFpZw')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -27,6 +27,7 @@ export class Video extends Component {
 
   render() {
     const { listLoaded, videoList } = this.state;
+    console.log(videoList);
     return(
       <View>
         {
@@ -34,8 +35,8 @@ export class Video extends Component {
             <View style={{ paddingTop: 30 }}>
               <FlatList
                 data={videoList}
-                renderItem={({item}) => (
-                  <TubeItem id={item.id.videoId} title={item.snippet.title} imageSrc={item.snippet.thumbnail.high.url} />
+                renderItem={({ item }) => (
+                  <TubeItem id={item.id.videoId} title={item.snippet.title} imageSrc={item.snippet.thumbnails.high.url} />
                 )}
               />
             </View>
