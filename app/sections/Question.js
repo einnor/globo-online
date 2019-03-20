@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableHighlight } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
-export default class Questions extends Component {
+export default class Question extends Component {
   static navigationOptions = {
     header: null,
   }
