@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
-export default class QuizFinish extends Component {
+export class QuizFinish extends Component {
   static navigationOptions = {
     header: null,
   }

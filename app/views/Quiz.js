@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, FlatList, TouchableHighlight } from 'react-nati
 import { QuizData } from '../data/QuizQuestions';
 import { Question } from '../sections/Question'
 
-export default class Quiz extends Component {
+export class Quiz extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -50,6 +50,7 @@ export default class Quiz extends Component {
 
   render() {
     const { questLoaded, questList, totalScore, completedQuiz } = this.state;
+    console.log(questLoaded, questList);
     return (
       <View style={StyleSheet.container}>
         {

@@ -6,7 +6,7 @@ export const QuizData = {
       answer2: 'JAVA',
       answer3: 'JavaScript',
       answer4: 'Python',
-      correnctAnswer: 'answer3',
+      correctAnswer: 'answer3',
       key: '1A',
     },
     {
@@ -15,7 +15,7 @@ export const QuizData = {
       answer2: 'array',
       answer3: 'number',
       answer4: 'boolean',
-      correnctAnswer: 'answer1',
+      correctAnswer: 'answer1',
       key: '1B',
     },
     {
@@ -24,7 +24,7 @@ export const QuizData = {
       answer2: '=>',
       answer3: '!==',
       answer4: '<=',
-      correnctAnswer: 'answer3',
+      correctAnswer: 'answer3',
       key: '1C',
     },
   ],

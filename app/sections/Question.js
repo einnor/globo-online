@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
-export default class Question extends Component {
+export class Question extends Component {
   static navigationOptions = {
     header: null,
   }
@@ -15,19 +15,19 @@ export default class Question extends Component {
   }
 
   chooseAnswer = (answer) => {
-    const { correctAnswer, scoreUpdaate } = this.props;
+    const { correctAnswer, scoreUpdate } = this.props;
     const worth = 25;
     if (answer === correctAnswer) {
       this.setState({
         selected: true,
         correct: true,
       });
-      scoreUpdaate(0);
+      scoreUpdate(0);
     } else {
       this.setState({
         selected: true,
       });
-      scoreUpdaate(worth);
+      scoreUpdate(worth);
     }
   }
   render() {
@@ -36,7 +36,7 @@ export default class Question extends Component {
     return (
       <View style={StyleSheet.container}>
         {
-          selected && (
+          !selected && (
             <View style={StyleSheet.container}>
               <Text style={StyleSheet.questionText}>{question}</Text>
               <TouchableHighlight underlayColor='#d3d3d3' onPress={() => this.chooseAnswer('answer1')}>
