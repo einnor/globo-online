@@ -49,10 +49,66 @@ export default class Quiz extends Component {
   }
 
   render() {
+    const { questLoaded, questList, totalScore, completedQuiz } = this.state;
     return (
-      <View>
-        <Text></Text>
+      <View style={StyleSheet.container}>
+        {
+          questLoaded && (
+            <FlatList
+              data={questList}
+              renderItem={({ item }) => (
+                <Question
+                  question={item.question}
+                  answer1={item.answer1}
+                  answer2={item.answer2}
+                  answer3={item.answer3}
+                  answer4={item.answer4}
+                  correctAnswer={item.correctAnswer}
+                  scoreUpdate={this.updateScore}
+                />
+              )}
+            />
+          )
+        }
+        {
+          !completedQuiz && (
+            <TouchableHighlight style={styles.disabled}>
+              <Text>Answer all the questions</Text>
+            </TouchableHighlight>
+          )
+        }
+        {
+          completedQuiz && (
+            <TouchableHighlight style={styles.enabled} onPress={this.finishQuiz}>
+              <Text>Answer all the questions</Text>
+            </TouchableHighlight>
+          )
+        }
+        {
+          !questLoaded && (
+            <Text>LOADING...</Text>
+          )
+        }
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 30,
+  },
+  disabled: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#d3d3d3',
+    height: '10%',
+  },
+  enabled: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#90ee90',
+    height: '10%',
+  },
+});
