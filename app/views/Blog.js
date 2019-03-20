@@ -24,7 +24,10 @@ export class Blog extends Component {
       .catch((error) => console.log(error));
   }
 
-  chooseBlog = (blogID) => {}
+  chooseBlog = (blogID) => {
+    const { navigation } = this.props;
+    navigation.navigate('BlogDetailsRT', { blogId: blogID });
+  }
 
   render() {
     const { blogLoaded, blogList } = this.state;
@@ -38,11 +41,11 @@ export class Blog extends Component {
                 keyExtractor={(item, index) => item.ID.toString()}
                 renderItem={({ item }) => (
                   <BlogItem
-                    id={item.id}
+                    id={item.ID}
                     title={item.title}
                     imageSrc={item.featured_image}
                     excerpt={item.excerpt}
-                    choosePost={this.chooseBlog}
+                    choosePost={() => this.chooseBlog(item.ID)}
                   />
                 )}
               />
