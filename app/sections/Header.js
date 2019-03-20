@@ -23,12 +23,15 @@ export class Header extends Component {
   }
 
   toggleUser = () => {
+    const { navigate } = this.props
     const { isLoggedIn } = this.state;
     if (isLoggedIn) {
       AsyncStorage.setItem('userLoggedIn', 'none', (err, result) => {
         this.setState({ isLoggedIn: false, loggedUser: false });
         Alert.alert('User logged out');
       });
+    } else {
+      navigate('LoginRT');
     }
   }
 
